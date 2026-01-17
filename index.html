@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Sonnet 4.5: What's New?</title>
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Claude Sonnet 4.5 is Anthropic's latest AI model, specifically designed for coding. It's not just a small upgrade; it's a significant leap in coding abilit...">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Claude Sonnet 4.5: What's New?">
+    <meta property="og:description" content="Claude Sonnet 4.5 is Anthropic's latest AI model, specifically designed for coding. It's not just a small upgrade; it's a significant leap in coding abilit...">
+    <meta property="og:image" content="https://img.youtube.com/vi/8_wzjlWBcM4/maxresdefault.jpg">
+    <meta property="og:site_name" content="iTabs">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Claude Sonnet 4.5: What's New?">
+    <meta name="twitter:description" content="Claude Sonnet 4.5 is Anthropic's latest AI model, specifically designed for coding. It's not just a small upgrade; it's a significant leap in coding abilit...">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/8_wzjlWBcM4/maxresdefault.jpg">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#f59e0b">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c: #f59e0b;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --txt: #f1f5f9;
+            --txt2: #94a3b8;
+            --bdr: #334155;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--txt);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--bdr);
+            margin-bottom: 30px;
+        }
+        
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--c);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .sub {
+            color: var(--txt2);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--card);
+            border: 1px solid var(--c);
+            color: var(--c);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            background: var(--card);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .itab-section {
+            background: var(--card);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--bdr);
+            overflow: hidden;
+        }
+        
+        .itab-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .itab-header:hover {
+            background: #334155;
+        }
+        
+        .itab-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .itab-num {
+            width: 36px;
+            height: 36px;
+            background: var(--c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        
+        .itab-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .itab-badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #334155;
+            color: var(--txt2);
+            text-transform: uppercase;
+        }
+        
+        .timestamp-btn {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--c);
+            font-family: monospace;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .timestamp-btn:hover {
+            background: rgba(245, 158, 11, 0.4);
+            border-color: var(--c);
+        }
+        
+        .timestamp-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #334155;
+            color: var(--txt2);
+            font-family: monospace;
+        }
+        
+        .i-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--c);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: serif;
+            font-style: italic;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        
+        .i-btn.active {
+            background: #10b981;
+        }
+        
+        .itab-content {
+            display: none;
+            padding: 20px;
+            border-top: 1px solid var(--bdr);
+        }
+        
+        .itab-content.show {
+            display: block;
+        }
+        
+        .itab-content p {
+            color: var(--txt2);
+            margin-bottom: 15px;
+        }
+        
+        .key-point {
+            background: var(--bg);
+            border-left: 4px solid var(--c);
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .kp-label {
+            color: var(--c);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        
+        .key-point p {
+            color: var(--txt);
+            margin: 0;
+        }
+        
+        .support {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .support h3 {
+            color: var(--c);
+            margin-bottom: 10px;
+        }
+        
+        .support a {
+            display: inline-block;
+            background: var(--c);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--bdr);
+            margin-top: 30px;
+            color: var(--txt2);
+            font-size: 0.85rem;
+        }
+        
+        footer a {
+            color: var(--c);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .itab-title {
+                gap: 10px;
+            }
+            .itab-name {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Claude Sonnet 4.5: What's New?</div>
+            <h1>Your Guide</h1>
+            <p class="sub">Tap any section to learn more</p>
+            
+        </header>
+        
+        
+                <div class="video-container">
+                    <iframe id="ytPlayer" src="https://www.youtube-nocookie.com/embed/8_wzjlWBcM4?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+        
+        
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">1</span>
+                            <span class="itab-name">Claude Sonnet 4.5: What's New?</span>
+                            <span class="itab-badge">Concept</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(0)">▶ 00:00:00</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Claude Sonnet 4.5 is Anthropic's latest AI model, specifically designed for coding. It's not just a small upgrade; it's a significant leap in coding ability. This model can independently think through tasks for over 30 hours, making it ideal for complex, long-term projects. This advancement previews a future where AI can handle more sophisticated software development tasks autonomously.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Claude 4.5: AI coder with a 30-hour brain.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">2</span>
+                            <span class="itab-name">Coding Benchmark: Sonnet 4.5 Dominates</span>
+                            <span class="itab-badge">Key Fact</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(72)">▶ 00:01:12</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Claude Sonnet 4.5 excels in coding benchmarks, surpassing previous models. On the SWE-Bench verified evaluation, Sonnet 4.5 significantly outperforms Opus 4.1 and GPT-4 Code Interpreter. Its high scores on Terminal Bench (50%) and Agentic Tool Use tests highlight its superior capabilities. This means it's currently the top choice for developers tackling complex coding challenges.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Sonnet 4.5: Crushing coding tests, best in class.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">3</span>
+                            <span class="itab-name">Long Horizon Tasks: AI's Endurance</span>
+                            <span class="itab-badge">Why It Matters</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(146)">▶ 00:02:26</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Long horizon tasks, which require AI to think and work for extended periods, are the next frontier in AI development. The amount of time AI can run autonomously is doubling roughly every 7 months. Claude Sonnet 4.5 can think for 30 hours independently, without an agentic framework. This capability is crucial because it allows AI to tackle more complex and realistic problems, mirroring how humans approach problem-solving.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>AI's 'Moore's Law': Task time doubles every 7 months.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">4</span>
+                            <span class="itab-name">Imagine: AI-Powered App Generation</span>
+                            <span class="itab-badge">Example</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(474)">▶ 00:07:54</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Anthropic's "Imagine" demo showcases the future of software: AI generating apps on the fly. Users can request an application, like an email client or calculator, and the AI builds it in real-time within a desktop environment. While currently a demo, it illustrates the potential for personalized, instantly-available software. This means users could create custom tools tailored to their specific needs without traditional development processes.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Imagine: AI builds custom apps, instantly.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">5</span>
+                            <span class="itab-name">System Prompt: Biases and Guardrails</span>
+                            <span class="itab-badge">Warning</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(788)">▶ 00:13:08</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Claude Sonnet 4.5's system prompt, which guides its behavior, includes specific instructions about bias and safety. For example, it's designed to be politically neutral and prioritize child safety. It also contains hardcoded "facts," such as specifying Donald Trump's (fictional) future presidency. This highlights the ongoing challenge of controlling AI behavior and preventing misuse, even with safety measures in place.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>AI 'facts' can be hardcoded: Watch for bias.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">6</span>
+                            <span class="itab-name">Using Claude Sonnet 4.5 Today</span>
+                            <span class="itab-badge">Action Step</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(922)">▶ 00:15:22</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Claude Sonnet 4.5 is available for use at the same price as Sonnet 4: $3 per million input tokens and $15 per million output tokens. Anthropic recommends upgrading to 4.5 immediately for all use cases, given its improved performance. This means developers can start leveraging its advanced coding and reasoning capabilities right away to enhance their projects.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Upgrade now: Claude 4.5 is live and ready to code.</p></div>
+                    </div>
+                </div>
+        
+        
+        
+        <footer>
+            Created with <a href="https://itabs.ai">iTabs</a> • Tap to learn, scroll to act
+        </footer>
+    </div>
+    
+    <script>
+        function toggle(h) {
+            h.nextElementSibling.classList.toggle('show');
+            h.querySelector('.i-btn').classList.toggle('active');
+        }
+        
+        function jumpToTime(seconds) {
+            var iframe = document.getElementById('ytPlayer');
+            if (iframe) {
+                var baseUrl = iframe.src.split('?')[0];
+                iframe.src = baseUrl + '?rel=0&modestbranding=1&start=' + seconds + '&autoplay=1';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+        
+        // Auto-open first section
+        document.querySelector('.itab-header')?.click();
+    </script>
+</body>
+</html>
