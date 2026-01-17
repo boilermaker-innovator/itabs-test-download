@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding the Basics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --c: #f59e0b;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --txt: #f1f5f9;
+            --txt2: #94a3b8;
+            --bdr: #334155;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--txt);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--bdr);
+            margin-bottom: 30px;
+        }
+        
+        .brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--c);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .sub {
+            color: var(--txt2);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--card);
+            border: 1px solid var(--c);
+            color: var(--c);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            background: var(--card);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .itab-section {
+            background: var(--card);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            border: 1px solid var(--bdr);
+            overflow: hidden;
+        }
+        
+        .itab-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .itab-header:hover {
+            background: #334155;
+        }
+        
+        .itab-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .itab-num {
+            width: 36px;
+            height: 36px;
+            background: var(--c);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        
+        .itab-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .itab-badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #334155;
+            color: var(--txt2);
+            text-transform: uppercase;
+        }
+        
+        .timestamp-btn {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--c);
+            font-family: monospace;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        
+        .timestamp-btn:hover {
+            background: rgba(245, 158, 11, 0.4);
+            border-color: var(--c);
+        }
+        
+        .timestamp-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: #334155;
+            color: var(--txt2);
+            font-family: monospace;
+        }
+        
+        .i-btn {
+            width: 32px;
+            height: 32px;
+            background: var(--c);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: serif;
+            font-style: italic;
+            flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        
+        .i-btn.active {
+            background: #10b981;
+        }
+        
+        .itab-content {
+            display: none;
+            padding: 20px;
+            border-top: 1px solid var(--bdr);
+        }
+        
+        .itab-content.show {
+            display: block;
+        }
+        
+        .itab-content p {
+            color: var(--txt2);
+            margin-bottom: 15px;
+        }
+        
+        .key-point {
+            background: var(--bg);
+            border-left: 4px solid var(--c);
+            padding: 15px 20px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .kp-label {
+            color: var(--c);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        
+        .key-point p {
+            color: var(--txt);
+            margin: 0;
+        }
+        
+        .support {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .support h3 {
+            color: var(--c);
+            margin-bottom: 10px;
+        }
+        
+        .support a {
+            display: inline-block;
+            background: var(--c);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid var(--bdr);
+            margin-top: 30px;
+            color: var(--txt2);
+            font-size: 0.85rem;
+        }
+        
+        footer a {
+            color: var(--c);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .itab-title {
+                gap: 10px;
+            }
+            .itab-name {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">Understanding the Basics</div>
+            <h1>Your Guide</h1>
+            <p class="sub">Tap any section to learn more</p>
+            
+        </header>
+        
+        
+                <div class="video-container">
+                    <iframe id="ytPlayer" src="https://www.youtube-nocookie.com/embed/8_wzjlWBcM4?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+        
+        
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">1</span>
+                            <span class="itab-name">Understanding the Basics</span>
+                            <span class="itab-badge">Overview</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(15)">▶ 00:00:15</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Before diving in, it's important to grasp the fundamental principles. This section covers the essential knowledge you need to get started effectively. Make sure you understand these before moving on.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Mastering the basics is crucial for future success.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">2</span>
+                            <span class="itab-name">The Key Concept</span>
+                            <span class="itab-badge">Key Point</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(90)">▶ 00:01:30</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>This section introduces a pivotal concept that will reshape your understanding. Grasping this idea is essential for unlocking further progress and achieving your goals. It's a game-changer!</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>This concept is the foundation for everything else.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">3</span>
+                            <span class="itab-name">Step-by-Step Instructions</span>
+                            <span class="itab-badge">How-To</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(225)">▶ 00:03:45</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Follow these steps to implement what you've learned. This section provides a practical walkthrough to guide you through the process. Each step is designed to build upon the previous one.</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Follow each step carefully for best results.</p></div>
+                    </div>
+                </div>
+                <div class="itab-section">
+                    <div class="itab-header" onclick="toggle(this)">
+                        <div class="itab-title">
+                            <span class="itab-num">4</span>
+                            <span class="itab-name">Your Next Steps</span>
+                            <span class="itab-badge">Action</span>
+                            <button class="timestamp-btn" onclick="event.stopPropagation(); jumpToTime(300)">▶ 00:05:00</button>
+                        </div>
+                        <button class="i-btn">i</button>
+                    </div>
+                    <div class="itab-content">
+                        <p>Now that you've completed the initial steps, it's time to plan your next move. This section outlines actionable steps you can take to continue your progress. Keep learning and experimenting!</p>
+                        <div class="key-point"><div class="kp-label">💡 Key Point</div><p>Continue learning and applying what you've learned.</p></div>
+                    </div>
+                </div>
+        
+        
+        
+        <footer>
+            Created with <a href="https://itabs.ai">iTabs</a> • Tap to learn, scroll to act
+        </footer>
+    </div>
+    
+    <script>
+        function toggle(h) {
+            h.nextElementSibling.classList.toggle('show');
+            h.querySelector('.i-btn').classList.toggle('active');
+        }
+        
+        function jumpToTime(seconds) {
+            var iframe = document.getElementById('ytPlayer');
+            if (iframe) {
+                var baseUrl = iframe.src.split('?')[0];
+                iframe.src = baseUrl + '?rel=0&modestbranding=1&start=' + seconds + '&autoplay=1';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        }
+        
+        // Auto-open first section
+        document.querySelector('.itab-header')?.click();
+    </script>
+</body>
+</html>
